@@ -8,7 +8,7 @@ module Doorkeeper
 
     store_in :collection => :oauth_access_tokens
 
-    field :resource_owner_id, :type => Integer
+    field :resource_owner_id, :type => String
     field :token, :type => String
     field :expires_in, :type => Integer
     field :revoked_at, :type => DateTime
