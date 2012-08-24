@@ -13,7 +13,6 @@ module Doorkeeper
     field :redirect_uri, :type => String
 
     index({:uid => 1}, :unique => true)
-    index({:name => 1})
 
     def self.authorized_for(resource_owner)
       ids = AccessToken.where(:resource_owner_id => resource_owner.id, :revoked_at => nil).map(&:application_id)
