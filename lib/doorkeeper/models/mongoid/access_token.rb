@@ -15,6 +15,8 @@ module Doorkeeper
 
     index({:token => 1}, :unique => true)
     index({:refresh_token => 1}, :unique => true, :sparse => true)
+    index({:application_id => 1, :revoked_at => 1})
+    index({:resource_owner_id => 1}, :unique => true, :sparse => true)
 
     def self.last_authorized_token_for(application, resource_owner_id)
       where(:application_id => application.id,
